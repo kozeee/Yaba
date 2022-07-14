@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/assets/view.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    
+
+    <title>YABA - Yet Another Blog App</title>
+
+
+</head>
+<body id="background">
+    <div class="container">
+        <h1 class="mb-4 text-center">Yet Another Blog App</h1>
+        <div class="col-md-6 offset-md-4">
+            <a href="/articles/new" class="btn btn-success offset-md-2">New Article</a>
+        </div>
+        
+        <% articles.forEach (article=>{ %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><a href="/articles/<%=article.slug%>"><%= article.title %></a></h4>
+                    <div class="card-subtitle text-muted mb-2">Published on: <%= article.timestamp.toLocaleDateString() %></div>
+                    <div class="card-text mb-2"><%= article.description %></div>
+                    <a href="/articles/<%=article.slug%>" id="ReadMore" class="btn btn-primary">Read More</a>
+                    <a href="/articles/edit/<%=article.id%>" id="Edit" class="btn btn-info">Edit</a>
+                    <form class="d-inline" action="/articles/<%=article.id%>?_method=DELETE" method="POST">
+                    <button type="submit" id="Delete" onclick="return confirm('Are you sure you would like to delete this article?');" class="btn btn-danger">Delete Article</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

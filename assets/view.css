@@ -1,0 +1,19 @@
+#background{
+    background: rgb(212,220,255);
+background: linear-gradient(180deg, rgba(212,220,255,1) 0%, rgba(0,212,255,1) 100%);
+background-repeat:no-repeat;
+background-attachment: fixed;
+height:100%;
+}
+
+#ReadMore{
+    background-color:#7d83ff;
+}
+
+#Edit{
+    background-color:#1affd5;
+}
+
+#Delete{
+    background-color:#CB1756 ;
+}
